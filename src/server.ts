@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import "dotenv/config";
 import "express-async-errors";
 import express, { Request, Response, NextFunction } from "express";
-import {routes} from "./routes/index";
+import {routes} from "./routes";
 import { AppError } from "./utils/AppError";
 import cors from "cors";
 
@@ -29,7 +30,5 @@ app.use((error: Error, request: Request, response: Response, next: NextFunction)
 
 const PORT = 3000;
 
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
-});
+app.listen(PORT, "0.0.0.0");
 
